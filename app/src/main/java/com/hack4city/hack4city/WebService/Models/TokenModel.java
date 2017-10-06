@@ -1,4 +1,4 @@
-package com.hack4city.hack4city.WebService;
+package com.hack4city.hack4city.WebService.Models;
 
 class TokenModel {
     private String access_token;
