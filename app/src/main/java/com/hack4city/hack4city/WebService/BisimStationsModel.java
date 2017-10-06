@@ -4,7 +4,7 @@ package com.hack4city.hack4city.WebService;
  * Created by Johnson on 7.10.2017.
  */
 
-public class BisimStations {
+public class BisimStationsModel {
     private String IstasyonId;
     private String IstasyonAdi;
     private String Durumu;
@@ -15,11 +15,11 @@ public class BisimStations {
     private String KoordinatX;
     private String KoordinatY;
 
-    public BisimStations() {
+    public BisimStationsModel() {
         this("","","","","","","","","");
     }
 
-    public BisimStations(String istasyonId, String istasyonAdi, String durumu, String kapasite, String bisikletSayisi, String bosParkYeri, String koordinat, String koordinatX, String koordinatY) {
+    public BisimStationsModel(String istasyonId, String istasyonAdi, String durumu, String kapasite, String bisikletSayisi, String bosParkYeri, String koordinat, String koordinatX, String koordinatY) {
         IstasyonId = istasyonId;
         IstasyonAdi = istasyonAdi;
         Durumu = durumu;

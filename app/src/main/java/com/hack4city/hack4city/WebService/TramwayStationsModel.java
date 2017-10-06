@@ -4,15 +4,15 @@ package com.hack4city.hack4city.WebService;
  * Created by Johnson on 7.10.2017.
  */
 
-public class TramwayStations {
+public class TramwayStationsModel {
     private String IstastonId;
     private String Adi;
 
-    public TramwayStations() {
+    public TramwayStationsModel() {
         this("","");
     }
 
-    public TramwayStations(String istastonId, String adi) {
+    public TramwayStationsModel(String istastonId, String adi) {
         IstastonId = istastonId;
         Adi = adi;
     }

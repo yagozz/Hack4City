@@ -4,18 +4,18 @@ package com.hack4city.hack4city.WebService;
  * Created by Johnson on 7.10.2017.
  */
 
-public class IzbanStations {
+public class IzbanStationsModel {
     private String IstasyonId;
     private String IstasyonAdi;
     private String IstasyonSirasi;
     private String KoordinatX;
     private String KoordinatY;
 
-    public IzbanStations() {
+    public IzbanStationsModel() {
         this("","","","","");
     }
 
-    public IzbanStations(String istasyonId, String istasyonAdi, String istasyonSirasi, String koordinatX, String koordinatY) {
+    public IzbanStationsModel(String istasyonId, String istasyonAdi, String istasyonSirasi, String koordinatX, String koordinatY) {
         IstasyonId = istasyonId;
         IstasyonAdi = istasyonAdi;
         IstasyonSirasi = istasyonSirasi;

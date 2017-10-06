@@ -4,7 +4,7 @@ package com.hack4city.hack4city.WebService;
  * Created by Johnson on 7.10.2017.
  */
 
-public class MetroHours {
+public class MetroHoursModel {
     private String SeferId;
     private String TarifeId;
     private String BaslangicSaati;
@@ -12,12 +12,12 @@ public class MetroHours {
     private String Sira;
     private String Aralik;
 
-    public MetroHours() {
+    public MetroHoursModel() {
 
         this("","","","","","");
     }
 
-    public MetroHours(String seferId, String tarifeId, String baslangicSaati, String bitisSaati, String sira, String aralik) {
+    public MetroHoursModel(String seferId, String tarifeId, String baslangicSaati, String bitisSaati, String sira, String aralik) {
 
         SeferId = seferId;
         TarifeId = tarifeId;

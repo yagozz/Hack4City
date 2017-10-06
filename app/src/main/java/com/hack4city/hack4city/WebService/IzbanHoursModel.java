@@ -4,7 +4,7 @@ package com.hack4city.hack4city.WebService;
  * Created by Johnson on 7.10.2017.
  */
 
-public class IzbanHours {
+public class IzbanHoursModel {
 
     private String HareketIstasyonID;
     private String HareketIstasyonAdi;
@@ -13,11 +13,11 @@ public class IzbanHours {
     private String HareketSaati;
     private String VarisSaati;
 
-    public IzbanHours() {
+    public IzbanHoursModel() {
         this("","","","","","");
     }
 
-    public IzbanHours(String hareketIstasyonID, String hareketIstasyonAdi, String varisIstasyonID, String varisIstasyonAdi, String hareketSaati, String varisSaati) {
+    public IzbanHoursModel(String hareketIstasyonID, String hareketIstasyonAdi, String varisIstasyonID, String varisIstasyonAdi, String hareketSaati, String varisSaati) {
         HareketIstasyonID = hareketIstasyonID;
         HareketIstasyonAdi = hareketIstasyonAdi;
         VarisIstasyonID = varisIstasyonID;
