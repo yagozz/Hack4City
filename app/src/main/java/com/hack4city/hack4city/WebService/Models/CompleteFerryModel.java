@@ -8,7 +8,7 @@ public class CompleteFerryModel {
         private String KalanKapasite;
 
         public FerryModel() {
-            this("","","","");
+            this(null,null,null,null);
         }
 
         public FerryModel(String adi, String kalkisSaati, String toplamKapasite, String kalanKapasite) {

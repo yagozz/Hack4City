@@ -9,7 +9,7 @@ public class FerryDockModel {
     private boolean AktifMi;
 
     public FerryDockModel() {
-        this(0,"",0.0,0.0,false,false);
+        this(0,null,0.0,0.0,false,false);
     }
 
     public FerryDockModel(int iskeleId, String adi, double koorX, double koorY, boolean arabalıVapurIskelesiMi, boolean aktifMi) {

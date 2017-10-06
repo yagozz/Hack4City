@@ -6,7 +6,7 @@ class TokenModel {
     private int expires_in;
 
     public TokenModel() {
-        this("","",0);
+        this(null,null,0);
     }
 
     public TokenModel(String access_token, String token_type, int expires_in) {

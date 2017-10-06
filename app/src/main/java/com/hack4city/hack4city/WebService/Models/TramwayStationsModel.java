@@ -1,4 +1,4 @@
-package com.hack4city.hack4city.WebService;
+package com.hack4city.hack4city.WebService.Models;
 
 /**
  * Created by Johnson on 7.10.2017.
