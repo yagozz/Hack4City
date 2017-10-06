@@ -1,6 +1,6 @@
 package com.hack4city.hack4city.WebService.Models;
 
-class TokenModel {
+public class TokenModel {
     private String access_token;
     private String token_type;
     private int expires_in;
