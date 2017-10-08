@@ -1,3 +1,54 @@
 <resources>
     <string name="app_name">Hack4City</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="appbar_scrolling_view_behavior">TabbedActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_maps">Map</string>
+    <string-array name="hatlar">
+        <item>Bir Hat Seçiniz</item>
+        <item>5 - NARLIDERE - ÜÇKUYULAR İSKELE</item>
+        <item>6 - ARIKENT - ÜÇKUYULAR İSK.</item>
+        <item>27 - ÇAMLIK - KONAK</item>
+        <item>33 - KADİFEKALE - KONAK</item>
+        <item>63 - EVKA3 METRO - KONAK</item>
+        <item>123 - ŞİRİNEVLER - ÇİĞLİ AKTARMA</item>
+        <item>172 - GAZİEMİR SEMT GARAJI - KEMER AKTARMA</item>
+        <item>443 - EGEKENT - BOSTANLI İSKELE</item>
+        <item>554 - NARLIDERE - KONAK</item>
+    </string-array>
+    <string-array name="duraklar">
+        <item>İnilecek Durağı Seçiniz</item>
+        <item>GÜZEL BAHÇE</item>
+        <item>GÜZELBAHÇE MEYDAN</item>
+        <item>STAD</item>
+        <item>GÜZEL BAHÇE OKUL DURAĞI</item>
+        <item>ASIR</item>
+        <item>BANKACILAR SİTESİ</item>
+    </string-array>
+    <string-array name="duraklar2">
+        <item>Aktarmadan İnilecek Durağı Seçiniz</item>
+        <item>Yok</item>
+        <item>GÜZEL BAHÇE</item>
+        <item>GÜZELBAHÇE MEYDAN</item>
+        <item>STAD</item>
+        <item>GÜZEL BAHÇE OKUL DURAĞI</item>
+        <item>ASIR</item>
+        <item>BANKACILAR SİTESİ</item>
+    </string-array>
+    <string-array name="aktarmalar">
+        <item>Aktarmanız Varsa Seçiniz</item>
+        <item>Yok</item>
+        <item>5 - NARLIDERE - ÜÇKUYULAR İSKELE</item>
+        <item>6 - ARIKENT - ÜÇKUYULAR İSK.</item>
+        <item>27 - ÇAMLIK - KONAK</item>
+        <item>33 - KADİFEKALE - KONAK</item>
+        <item>63 - EVKA3 METRO - KONAK</item>
+        <item>123 - ŞİRİNEVLER - ÇİĞLİ AKTARMA</item>
+        <item>172 - GAZİEMİR SEMT GARAJI - KEMER AKTARMA</item>
+        <item>443 - EGEKENT - BOSTANLI İSKELE</item>
+        <item>554 - NARLIDERE - KONAK</item>
+    </string-array>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>

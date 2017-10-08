@@ -1,36 +1,105 @@
-package com.hack4city.hack4city.WebService.Models;
+package com.hack4city.hack4city.WebService;
 
 import android.os.AsyncTask;
 
 import com.google.gson.Gson;
+import com.hack4city.hack4city.WebService.Models.BisimStationsModel;
+import com.hack4city.hack4city.WebService.Models.CompleteFerryModel;
+import com.hack4city.hack4city.WebService.Models.FerryDockModel;
+import com.hack4city.hack4city.WebService.Models.FerryHoursModel;
+import com.hack4city.hack4city.WebService.Models.IzbanHoursModel;
+import com.hack4city.hack4city.WebService.Models.IzbanStationsModel;
+import com.hack4city.hack4city.WebService.Models.MetroHoursModel;
+import com.hack4city.hack4city.WebService.Models.MetroStationsModel;
+import com.hack4city.hack4city.WebService.Models.TokenModel;
+import com.hack4city.hack4city.WebService.Models.TramwayHoursModel;
+import com.hack4city.hack4city.WebService.Models.TramwayStationsModel;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class WebService {
     private String WebServiceBaseURL="https://hackhaton.izmir.bel.tr/api/";
     private Gson gson;
+
     DownloadData downloadData;
 
     public WebService() {
-        getData();
-        gson=new Gson();
+
         downloadData = new DownloadData();
+        gson=new Gson();
+
     }
 
-    public void getData(){
-        DownloadData downloadData = new DownloadData();
-        String url="http://api.fixer.io/latest?base=USD";
-        downloadData.execute(url);
+    public String[][] getRouteLatLong(final String hatId){
+        final ArrayList<String> lats = new ArrayList<String>();
+        final ArrayList<String> lngs = new ArrayList<String>();
+        Thread downloaderThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    URL url = new URL("http://www.eshot.gov.tr/tr/UlasimSaatleri/288");
+                    HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
+                    httpCon.setDoOutput(true);
+                    httpCon.setRequestMethod("POST");
+                    OutputStreamWriter out = new OutputStreamWriter(httpCon.getOutputStream());
+                    out.write("hatId="+hatId);
+                    out.flush();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(httpCon.getInputStream()));
+                    String line;
+                    boolean markesLineFound = false;
+
+                    while ((line = reader.readLine()) != null) {
+                        if(!markesLineFound && line.contains("var markersCizgi = [];"))
+                            markesLineFound = true;
+
+                        if(!markesLineFound)
+                            continue;
+                        String regexString = Pattern.quote("lat: '") + "(.*?)" + Pattern.quote("'.repl");
+                        Pattern pattern = Pattern.compile(regexString);
+                        Matcher matcher = pattern.matcher(line);
+                        while (matcher.find())
+                            lats.add(matcher.group(1));
+
+                        regexString = Pattern.quote("lng: '") + "(.*?)" + Pattern.quote("'.repl");
+                        pattern = Pattern.compile(regexString);
+                        matcher = pattern.matcher(line);
+                        while (matcher.find())
+                            lngs.add(matcher.group(1));
+                    }
+
+                    out.close();
+                    reader.close();;
+
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+        downloaderThread.start();
+        try {
+            downloaderThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return new String[][]{lats.toArray(new String[lats.size()]),lngs.toArray(new String[lngs.size()])};
     }
+
     public BisimStationsModel getBisimStationsModel(){
 
         try {
@@ -133,7 +202,7 @@ public class WebService {
 
     }
 
-    public IzbanHoursModel getIzbanHoursModel(Integer hareketIstasyonId,Integer varisIstasyonId){
+    public IzbanHoursModel getIzbanHoursModel(Integer hareketIstasyonId, Integer varisIstasyonId){
 
         try {
             String data=downloadData.execute(WebServiceBaseURL+"IzbanIstasyonlar"+
@@ -196,7 +265,7 @@ public class WebService {
 
     }
 
-    public FerryHoursModel getFerryHoursModel(Integer kalkis,Integer varis,Integer gunTipi){
+    public FerryHoursModel getFerryHoursModel(Integer kalkis, Integer varis, Integer gunTipi){
 
         try {
             FerryHoursModel ferryHoursModel;

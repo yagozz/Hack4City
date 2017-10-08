@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee">
+
+    <ImageView
+        android:id="@+id/tripImage"
+        android:layout_width="match_parent"
+        android:layout_height="204dp"
+        app:srcCompat="@mipmap/route" />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/trip_page_layout_map_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#0D93A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="0"
+        android:text="Rota Bul"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"/>
+
+    <LinearLayout
+        android:id="@+id/trip_image_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@mipmap/emptyroute"></LinearLayout>
+</LinearLayout>
